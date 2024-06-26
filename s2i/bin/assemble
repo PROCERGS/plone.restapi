@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo "Default S2I assemble script will begin"
+
+/usr/libexec/s2i/assemble
+rc=$?
+
+if [ $rc -eq 0 ]; then
+    echo "After successful default S2I assembling"
+	echo "Starting custom S2I assembling"
+	
+	# Custom S2I assemble for plone.restapi
+	# make build-plone-6.0 (dont need the "make" since S2I already runs the pip install)
+	# Pip install on requirements.txt made the buildout command available. This is the missing step from the make command
+	buildout -c plone-6.0.x.cfg
+
+	# set permissions for any installed artifacts
+	fix-permissions /opt/app-root -P
+	
+	echo "End of custom S2I assembling"
+else
+    echo "After failed S2I assembling"
+fi
+
+exit $rc

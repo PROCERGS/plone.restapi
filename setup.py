@@ -4,7 +4,7 @@ from setuptools import setup
 import sys
 
 
-version = "9.7.1.dev0"
+version = "9.6.1"
 
 if sys.version_info.major == 2:
     raise ValueError(
@@ -43,10 +43,7 @@ TEST_REQUIRES = [
     "collective.MockMailHost",
     "plone.app.caching",
     "plone.app.contenttypes[test]",
-    "plone.app.iterate",
-    "plone.app.discussion[test]",
     "plone.app.testing",
-    "plone.app.upgrade",
     "plone.api",
     "requests",
     "mock",
@@ -65,7 +62,6 @@ setup(
         "Framework :: Plone",
         "Framework :: Plone :: 5.2",
         "Framework :: Plone :: 6.0",
-        "Framework :: Plone :: 6.1",
         "Framework :: Plone :: Core",
         "Intended Audience :: Developers",
         "Operating System :: OS Independent",

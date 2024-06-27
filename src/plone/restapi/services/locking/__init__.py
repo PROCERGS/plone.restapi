@@ -1,6 +1,5 @@
 """ Locking
 """
-
 from datetime import datetime
 from datetime import timezone
 from plone import api

@@ -63,14 +63,6 @@
       provides="plone.restapi.interfaces.IBlockFieldSerializationTransformer"
       />
 
-  <subscriber
-      factory=".blocks.TeaserBlockSerializerRoot"
-      provides="plone.restapi.interfaces.IBlockFieldSerializationTransformer"
-      />
-  <subscriber
-      factory=".blocks.TeaserBlockSerializer"
-      provides="plone.restapi.interfaces.IBlockFieldSerializationTransformer"
-      />
 
   <adapter factory=".converters.date_converter" />
   <adapter factory=".converters.decimal_converter" />
@@ -115,10 +107,8 @@
 
   <adapter factory=".registry.SerializeRegistryToJson" />
 
-  <configure zcml:condition="installed plone.app.discussion">
-    <adapter factory=".discussion.ConversationSerializer" />
-    <adapter factory=".discussion.CommentSerializer" />
-  </configure>
+  <adapter factory=".discussion.ConversationSerializer" />
+  <adapter factory=".discussion.CommentSerializer" />
 
   <include package=".controlpanels" />
 

@@ -115,9 +115,7 @@ class UsersGet(Service):
         principals = []
         for principal_info in search_for_principal(hunter, self.search_term):
             principal_id = principal_info[id_key]
-            principal = get_principal_by_id(principal_id)
-            if principal is not None:
-                principals.append(principal)
+            principals.append(get_principal_by_id(principal_id))
 
         return principals
 

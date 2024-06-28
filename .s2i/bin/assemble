@@ -15,13 +15,16 @@ if [ $rc -eq 0 ]; then
 	echo "Starting custom S2I assembling"
 	
 	# Custom S2I assemble for plone.restapi
-	# make build-plone-6.0 (dont need the "make" since S2I already runs the pip install)
+	make build-plone-6.0 
+	# TODO: Fix default S2I pip install. S2I already runs the pip install but have been disabled with DISABLE_SETUP_PY_PROCESSING and DISABLE_PYPROJECT_TOML_PROCESSING.
 	# Pip install on requirements.txt made the buildout command available. This is the missing step from the make command
-	buildout -c plone-6.0.x.cfg
+	# buildout -c plone-6.0.x.cfg
 
 	# set permissions for any installed artifacts
 	fix-permissions /opt/app-root -P
 	
+	chmod +x /opt/app-root/instance-wrapper
+
 	echo "End of custom S2I assembling"
 else
     echo "After failed S2I assembling"

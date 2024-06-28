@@ -23,7 +23,8 @@ if [ $rc -eq 0 ]; then
 	# set permissions for any installed artifacts
 	fix-permissions /opt/app-root -P
 	
-	chmod +x /opt/app-root/instance-wrapper
+	# manually set permission to instance-wrapper
+	chmod +x ./instance-wrapper
 
 	echo "End of custom S2I assembling"
 else

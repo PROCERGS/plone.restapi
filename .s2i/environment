@@ -1,1 +1,2 @@
-APP_SCRIPT="bin/instance fg"
+APP_SCRIPT="instance-wrapper"
+ENABLE_INIT_WRAPPER=1
